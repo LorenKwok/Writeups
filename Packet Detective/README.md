@@ -1,4 +1,5 @@
-##CyberDefenders Packet Detective Lab##
+## CyberDefenders Packet Detective Lab ##
+
 Learn how to inspect a network packet using Wireshark through CyberDefenders' Packet Detective lab.
 
 
@@ -13,12 +14,12 @@ CompTIA’s Article on Wireshark
 
 Wireshark’s User Manual
 
-##Scenario##
+## Scenario ##
 In September 2020, your SOC detected suspicious activity from a user device, flagged by unusual SMB protocol usage. Initial analysis indicates a possible compromise of a privileged account and remote access tool usage by an attacker.
 
 Your task is to examine network traffic in the provided PCAP files to identify key indicators of compromise (IOCs) and gain insights into the attacker’s methods, persistence tactics, and goals. Construct a timeline to better understand the progression of the attack by addressing the following questions.
 
-##File: Traffic-1.pcapng##
+## File: Traffic-1.pcapng ##
 Q1) The attacker’s activity showed extensive SMB protocol usage, indicating a potential pattern of significant data transfer or file access.
 What is the total number of bytes of the SMB protocol?
 Your task is to examine network traffic in the provided PCAP files to identify key indicators of compromise (IOCs) and gain insights into the attacker’s methods, persistence tactics, and goals. Construct a timeline to better understand the progression of the attack by addressing the following questions.
@@ -64,7 +65,7 @@ In the taskbar, go to View -> Time Display Format -> UTC Date and Time of Day
 
 Doing so can easily allow you to find the Date and Time.
 
-##File: Traffic-2.pcapng##
+## File: Traffic-2.pcapng ##
 Q5) The attacker used "named pipes" for communication, suggesting they may have utilized Remote Procedure Calls (RPC) for lateral movement across the network. RPC allows one program to request services from another remotely, which could grant the attacker unauthorized access or control.
 What is the name of the service that communicated using this named pipe?
 Use the following filter: “frame contains 5c:00:50:00:49:00:50:00:45”. These are Unicode for the following:
@@ -95,7 +96,7 @@ Under the taskbar, navigate to Statistics -> Conversations
 
 Under Duration, you will find the duration of the conversation between the two IP addresses.
 
-##File: Traffic-3.pcap.ng##
+## File: Traffic-3.pcap.ng ##
 Q7) The attacker used a non-standard username to set up requests, indicating an attempt to maintain covert access. Identifying this username is essential for understanding how persistence was established.
 Which username was used to set up these potentially suspicious requests?
 Once again, you can use “ntlmssp.auth.username” command to look for any usernames that are trying to do a NTLM authentication.
@@ -114,7 +115,7 @@ You can also use CTRL+F and do a String search for packet list including “.exe
 
 Congratulations! You have completed all of the exercises in Packet Detective!
 
-##Takeaway##
+## Takeaway ##
 Learning how to use a network packet analyzer like Wireshark is a great way to break into the cybersecurity industry. Now that you are done with these exercises, I encourage you to do more of CyberDefenders’ labs. You can also find more .pcap exercises on malware-traffic-analysis.net. I encourage you to complete these on a virtual environment.
 
 Aside from Wireshark, which is a graphic user interface(GUI)-based packet sniffer, knowing how to use tcpdump, which is a command line interface(CLI)-based packet sniffer, can be beneficial. In the future, I hope to learn more about tcpdump to create a writeup on it.
