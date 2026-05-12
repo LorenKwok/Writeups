@@ -10,9 +10,8 @@ While I encourage searching for the solution on your own, utilizing guides espec
 
 You may find more information on Wireshark here:
 
-CompTIA’s Article on Wireshark
-
-Wireshark’s User Manual
+- [CompTIA’s Article on Wireshark](https://www.comptia.org/en-us/blog/what-is-a-network-protocol/)
+- [Wireshark’s User Manual](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIntroduction.html) 
 
 ## Scenario ##
 In September 2020, your SOC detected suspicious activity from a user device, flagged by unusual SMB protocol usage. Initial analysis indicates a possible compromise of a privileged account and remote access tool usage by an attacker.
