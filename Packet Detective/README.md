@@ -25,6 +25,8 @@ Your task is to examine network traffic in the provided PCAP files to identify k
 
 On the taskbar, navigate to Statistics -> Protocol Hierarchy
 
+![alt text](image.png)
+
 You can easily find the answer under bytes.
 
 Q2) Authentication through SMB was a critical step in gaining access to the targeted system. Identifying the username used for this authentication will help determine if a privileged account was compromised.
@@ -38,6 +40,8 @@ In the logs, you will notice a user who is trying to authenticate with NTLM.
 
 Quick way to find out if there is a username associated with NTLM is to use the filter: “ntlmssp.auth.username”
 
+![alt text](image-1.png)
+
 Alternatively, you can easily scroll the packet list to find the first authentication attempt associated with a username.
 
 Q3) During the attack, the adversary accessed certain files. Identifying which files were accessed can reveal the attacker's intent.
@@ -45,6 +49,8 @@ What is the name of the file that was opened by the attacker?
 Since the files utilize the SMB protocol, use the taskbar and navigate to File -> Export Objects -> SMB
 
 Finds any objects associated with SMB that is being accessed.
+
+![alt text](image-2.png)
 
 Here, you can easily find the file name.
 
@@ -61,6 +67,8 @@ Use “dcerpc.opnum == 0” filter to find the Clear Request. Opnum is an easy w
 · Opnum 4 and 5 are for GetNumberofEventLogRecords and GetOldestEventLogRecord respectively
 
 In the taskbar, go to View -> Time Display Format -> UTC Date and Time of Day
+
+![alt text](image-3.png)
 
 Doing so can easily allow you to find the Date and Time.
 
@@ -81,7 +89,11 @@ Use the following filter: “frame contains 5c:00:50:00:49:00:50:00:45”. These
 
 You will find one packet.
 
+![alt text](image-4.png)
+
 Investigate the packet details
+
+![alt text](image-5.png)
 
 If you look hard enough for any directories related to “PIPE”, you will find a file called atsvc which indicates an “AT Service/Task Scheduler.”
 
@@ -89,16 +101,24 @@ Alternatively, you may also find the same packet using CTRL+F, changing the sear
 
 Q6) Measuring the duration of suspicious communication can reveal how long the attacker maintained unauthorized access, providing insights into the scope and persistence of the attack.
 What was the duration of communication between the identified addresses 172.16.66.1 and 172.16.66.36?
+
 Filter by “ip.addr” for both. Alternatively, you can use “ip.dst” and “ip.src” filters if you wanted to be more specific, but “ip.addr” is faster for this exercise.
 
+![alt text](image-6.png)
+
 Under the taskbar, navigate to Statistics -> Conversations
+
+![alt text](image-7.png)
 
 Under Duration, you will find the duration of the conversation between the two IP addresses.
 
 ## File: Traffic-3.pcap.ng ##
 Q7) The attacker used a non-standard username to set up requests, indicating an attempt to maintain covert access. Identifying this username is essential for understanding how persistence was established.
 Which username was used to set up these potentially suspicious requests?
+
 Once again, you can use “ntlmssp.auth.username” command to look for any usernames that are trying to do a NTLM authentication.
+
+![alt text](image-8.png)
 
 You will find two files, and you’ll be able to see the username of the first request.
 
@@ -108,9 +128,13 @@ Once again, use File -> Export Objects to file any files that are involved.
 
 SMB is the only protocol that you need to be concerned with for this exercise if you look at the packets in the log. However, you can try each one to see what you can find. You will notice that there are only executables associated with SMB.
 
+![alt text](image-9.png)
+
 The only executable can be found here.
 
 You can also use CTRL+F and do a String search for packet list including “.exe”
+
+![alt text](image-10.png)
 
 Congratulations! You have completed all of the exercises in Packet Detective!
 
